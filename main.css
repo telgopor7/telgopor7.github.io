@@ -1,0 +1,94 @@
+@font-face {
+  font-family: "kjv";
+  src:  url("/KJV1611.woff2") format("woff2")   ;
+  unicode-range: U+000-5FF;
+}
+@font-face {
+  font-family: "EB Garamond";
+  src:  url("/EBGaramond.woff2") format("woff2")   ;
+  unicode-range: U+000-5FF;
+}
+
+body {
+	font-family: "EB Garamond",Garamond, Georgia;
+	background-color: #ffffea;
+}
+#main {
+	padding-top: 2ch;
+	text-align: center;
+}
+h1 {
+	margin-bottom: 0;
+	color: #722f37;
+	font-family: "kjv";
+	font-weight: normal;
+}
+h2 {
+	text-align: center;
+	color: #722f37;
+	font-size: 24px;
+	line-height: 1.2;
+}
+hr{
+	color:#722f37;
+	border-color:#722f37;
+}
+a:visited{
+	color: #722f37;
+}
+.centro{
+	font-size: 16px; 
+	text-align: center;
+	line-height: 1.5;
+	height: 70vh;
+	width: 80vw;
+}
+.centro a{
+	font-size: 24px;
+	font-weight: bold;
+	color: #722f37;
+}
+a:focus {
+	border: 2px solid #722f37;
+	padding:0.5px;
+	outline:none;
+}
+.centro .dias{
+	line-height: 1;
+	font-size: 16px;
+	margin:0px;	
+	color:#4B5267;
+}
+.texto{
+	color:#4B5267;
+}
+.flecha{
+	font-size: 24px; 
+	text-align: center;
+	color: #722f37;
+	padding-right:2ch;
+	padding-left:2ch;
+	width: 10vw;
+}
+#flechaDer{
+	text-decoration:none;
+	cursor: pointer;
+	user-select : none;
+	-webkit-user-select: none;
+}
+#flechaIzq{
+	text-decoration:none;
+	cursor: pointer;
+	user-select : none;
+	-webkit-user-select: none;
+}
+.flecha a:focus{
+	border: 2px solid #722f37;
+	outline:none;
+}
+.cruz{
+	text-align: center;
+	font-size: 2rem;
+	color: #722f37;
+	font-weight: normal;
+}

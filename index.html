@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title>Santo Rosario</title>
+	<meta name="viewport" content="width=device-width" />
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+	<script src="./grecha.js"></script>
+	<script src="./ros.js"></script>
+	
+	<div id="main"></div>
+	
+	<script>
+	const r = router({
+	"/": () => 
+		div(
+			div(a("").att$("class","flecha")),
+			div(
+				div(header(h1("Santo Rosario"),div("✝").att$("class","cruz"),hr())),
+				p(a("Misterios Gozosos").att$("href","").att$("onclick","return empezar({mist : misterios.goz, nro: 1})"),p("Lunes y Sábado").att$("class","dias")),
+				p(a("Misterios Luminosos").att$("href","").att$("onclick","return empezar({mist : misterios.lum, nro: 1})"),p("Jueves").att$("class","dias")),
+				p(a("Misterios Dolorosos").att$("href","").att$("onclick","return empezar({mist : misterios.dol, nro: 1})"),p("Martes y Viernes").att$("class","dias")),
+				p(a("Misterios Gloriosos").att$("href","").att$("onclick","return empezar({mist : misterios.glo, nro: 1})"),p("Miércoles y Domingo").att$("class","dias"))
+			).att$("class","centro"),
+			div(a("").att$("class","flecha")),
+			script(`	
+				switch(new Date().getDay()){
+					case 0:
+					case 3:
+					document.getElementsByClassName("dias")[3].appendChild(n);
+					break;
+					case 1:
+					case 6:
+					document.getElementsByClassName("dias")[0].appendChild(n);
+					break;
+					case 2:
+					case 5:
+					document.getElementsByClassName("dias")[2].appendChild(n);
+					break;
+					case 4:
+					document.getElementsByClassName("dias")[1].appendChild(n);
+					break;
+				}
+			`)
+		).att$("style",divStyle),
+	"/ini": () => contenido({titulo: "Padre Hijo Espiritu Santo", texto : textos.inicio, contador: 0, prev: "", sig: ros.mist + ros.nro}),
+	"/pad": () => contenido({titulo: "Padre Nuestro", texto : textos.padreNuestro, contador: 0, prev: ros.mist + ros.nro, sig: "ave"}),
+	"/ave": () => contenido({titulo: "Avemaría", texto : textos.aveMaria, contador: 10, prev: "pad", sig: "glo"}),
+	"/glo": () => contenido({titulo: "Gloria", texto : textos.gloria, contador: 0, prev: "ave", sig: ros.nro !==5 ? ros.mist + (ros.nro + 1) : "sal"}),
+	"/sal": () => contenido({titulo:"Salve", texto : textos.salve, contador: 0, prev: "glo", sig: ""}),
+	
+	//"/esp": () => contenido({titulo: "Ven Espíritu Santo", texto : textos.espirituSanto, contador: 3}),
+	//Logica especial, usar el contador como indice o algo asi.
+	//"/jac": () => contenido("Jaculatorias",jac[i],4),
+	
+	//Misterios Gozosos
+	"/goz1": () => mist(0, misterios.goz, ...goz),
+	"/goz2": () => mist(1, misterios.goz, ...goz),
+	"/goz3": () => mist(2, misterios.goz, ...goz),
+	"/goz4": () => mist(3, misterios.goz, ...goz),
+	"/goz5": () => mist(4, misterios.goz, ...goz),
+	//Misterios Luminosos
+	"/lum1": () => mist(0, misterios.lum, ...lum),
+	"/lum2": () => mist(1, misterios.lum, ...lum),
+	"/lum3": () => mist(2, misterios.lum, ...lum),
+	"/lum4": () => mist(3, misterios.lum, ...lum),
+	"/lum5": () => mist(4, misterios.lum, ...lum),
+	//Misterios Dolorosos
+	"/dol1": () => mist(0, misterios.dol, ...dol),
+	"/dol2": () => mist(1, misterios.dol, ...dol),
+	"/dol3": () => mist(2, misterios.dol, ...dol),
+	"/dol4": () => mist(3, misterios.dol, ...dol),
+	"/dol5": () => mist(4, misterios.dol, ...dol),
+	//Misterios Gloriosos
+	"/glo1": () => mist(0, misterios.glo, ...glo),
+	"/glo2": () => mist(1, misterios.glo, ...glo),
+	"/glo3": () => mist(2, misterios.glo, ...glo),
+	"/glo4": () => mist(3, misterios.glo, ...glo),
+	"/glo5": () => mist(4, misterios.glo, ...glo)
+	});
+		
+	main.appendChild(r);
+	
+    </script>
+</body>
+
+</html>
