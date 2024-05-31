@@ -1,8 +1,3 @@
-//Agregar idioma a ros para habilitar multiples idiomas luego.
-//Revisar Mobile
-//refactor que es un desastre esto.
-//cambiar las rutas por enums en lugar de los strings.
-//jaculatorias, etc..
 //https://coolors.co/ffffea-722f37-4b5267
 
 const divStyle = "display: grid; grid-template-columns: auto auto auto;align-items: center;padding-top:3ch;"
@@ -147,7 +142,7 @@ function mist(idx, misterio, ...m ){
 	ros.nro = idx + 1; 
 	
 	const ret = div(
-		div(a("◀").att$("onclick","ros.nro--; return redirRet(" + (ros.nro > 1 ? "\"glo\"" : "\"ini\"") +")").att$("id","flechaIzq").att$("class","flecha")),
+		div(a("◀").att$("onclick","if(ros.nro != 1) ros.nro--; return redirRet(" + (ros.nro > 1 ? "\"glo\"" : "\"ini\"") +")").att$("id","flechaIzq").att$("class","flecha")),
 		div(
 			header(h1("Santo Rosario"),div("✝").att$("class","cruz")),hr(),
 			h2(m[idx].title),
