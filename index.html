@@ -54,11 +54,9 @@
 	"/pad": () => contenido({titulo: "Padre Nuestro", texto : textos.padreNuestro, contador: 0, prev: ros.mist + ros.nro, sig: "ave"}),
 	"/ave": () => contenido({titulo: "Avemaría", texto : textos.aveMaria, contador: 10, prev: "pad", sig: "glo"}),
 	"/glo": () => contenido({titulo: "Gloria", texto : textos.gloria, contador: 0, prev: "ave", sig: ros.nro !==5 ? ros.mist + (ros.nro + 1) : "sal"}),
-	"/sal": () => contenido({titulo:"Salve", texto : textos.salve, contador: 0, prev: "glo", sig: ""}),
-	
-	//"/esp": () => contenido({titulo: "Ven Espíritu Santo", texto : textos.espirituSanto, contador: 3}),
-	//Logica especial, usar el contador como indice o algo asi.
+	//Jaculatorias varias
 	//"/jac": () => contenido("Jaculatorias",jac[i],4),
+	"/sal": () => contenido({titulo:"Salve", texto : textos.salve, contador: 0, prev: "glo", sig: ""}),
 	
 	//Misterios Gozosos
 	"/goz1": () => mist(0, misterios.goz, ...goz),

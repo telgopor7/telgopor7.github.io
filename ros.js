@@ -3,11 +3,12 @@
 const n = document.createElement("strong");
 n.innerHTML = " (Hoy)"; 
 
-//Esto solo deberia ir en las pantallas con flechas.
 document.getElementsByTagName("body")[0].onkeyup = logKey;
+
 function logKey(e) {
-	//Validar para: ArrowLeft, ArrowRight
-	//console.log(e.code);
+	if(e.code === "ArrowRight") document.querySelector(".flechaDer a").click();
+	if(e.code === "ArrowLeft") document.querySelector(".flechaIzq a").click();
+	if(e.code === "KeyQ" ) document.getElementsByTagName("h1")[0].click();
 }
 
 const misterios = Object.freeze({
@@ -148,7 +149,7 @@ function mist(idx, misterio, ...m ){
 		),
 		aside(a("▶").att$("onclick","return redirAv(\"pad\")")).att$("class","flechaDer"),
 
-	).att$("class","container")
+	).att$("class","container");
 
 	return ret;
 }
