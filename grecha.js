@@ -15,17 +15,27 @@ function tag(name, ...children) {
         return this;
     };
 
-    result.onclick$ = function(callback) {
-        this.onclick = callback;
+	result.onevent$ = function(event, callback) {
+        this.addEventListener(event,callback);
         return this;
+    };
+	
+	result.onclick$ = function(callback) {
+        this.onevent$("click", callback);
+		return this;
     };
 
     return result;
 }
 
-const MUNDANE_TAGS = ["canvas", "h1", "h2", "h3", "p", "a", "div", "span", "select","header","hr","script"];
-for (let tagName of MUNDANE_TAGS) {
-    window[tagName] = (...children) => tag(tagName, ...children);
+const grechaTags = ["canvas", "h1", "h2", "h3", "p", "a", "div", "span", "select"];
+
+grechaTags.push = function() { Array.prototype.push.apply(this, arguments);  refreshTags();};
+
+function refreshTags(){
+	for (let tagName of grechaTags) {
+		window[tagName] = (...children) => tag(tagName, ...children);
+	}
 }
 
 function img(src) {

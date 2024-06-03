@@ -1,7 +1,5 @@
 //https://coolors.co/ffffea-722f37-4b5267
 
-const divStyle = "display: grid; grid-template-columns: auto auto auto;align-items: center;padding-top:3ch;"
-
 const n = document.createElement("strong");
 n.innerHTML = " (Hoy)"; 
 
@@ -142,15 +140,15 @@ function mist(idx, misterio, ...m ){
 	ros.nro = idx + 1; 
 	
 	const ret = div(
-		div(a("◀").att$("onclick","if(ros.nro != 1) ros.nro--; return redirRet(" + (ros.nro > 1 ? "\"glo\"" : "\"ini\"") +")").att$("id","flechaIzq").att$("class","flecha")),
-		div(
-			header(h1("Santo Rosario"),div("✝").att$("class","cruz")),hr(),
+		aside(a("◀").att$("onclick","if(ros.nro != 1) ros.nro--; return redirRet(" + (ros.nro > 1 ? "\"glo\"" : "\"ini\"") +")")).att$("class","flechaIzq"),
+		header(h1("Santo Rosario").onclick$(() => {redirRet("");}),span("✝").att$("class","cruz"),hr()),
+		article(
 			h2(m[idx].title),
 			p(m[idx].content).att$("class","texto")
-		).att$("class","centro"),
-		div(a("▶").att$("onclick","return redirAv(\"pad\")").att$("id","flechaDer").att$("class","flecha")),
+		),
+		aside(a("▶").att$("onclick","return redirAv(\"pad\")")).att$("class","flechaDer"),
 
-	).att$("style",divStyle)
+	).att$("class","container")
 
 	return ret;
 }
@@ -183,15 +181,15 @@ function redirAv(sig){
 function contenido(params){
 	if (params.contador != 0) totalCount = params.contador;
 	const ret = div(
-		div(a("◀").att$("onclick","return redirRet(\"" + params.prev + "\")").att$("id","flechaIzq").att$("class","flecha")),
-		div(
-			header(h1("Santo Rosario"),div("✝").att$("class","cruz")),hr(),
+		aside(a("◀").att$("onclick","return redirRet(\"" + params.prev + "\")")).att$("class","flechaIzq"),
+		header(h1("Santo Rosario").onclick$(() => {redirRet("");}),span("✝").att$("class","cruz"),hr()),
+		article(
 			params.titulo? h2(params.titulo) : "",
 			p(params.texto).att$("class","texto"),
 			params.contador != 0 ? h2(count + "/" + totalCount) : "",
-		).att$("class","centro"),
-		div(a("▶").att$("onclick","return redirAv(\"" + params.sig + "\")").att$("id","flechaDer").att$("class","flecha")),
-	).att$("style",divStyle);
+		),
+		aside(a("▶").att$("onclick","return redirAv(\"" + params.sig + "\")")).att$("class","flechaDer"),
+	).att$("class","container");
 
 	return ret;
 }

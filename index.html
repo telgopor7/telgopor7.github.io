@@ -16,18 +16,20 @@
 	<div id="main"></div>
 	
 	<script>
+	grechaTags.push("header","hr","script","article","aside");
+	
 	const r = router({
 	"/": () => 
 		div(
-			div(a("").att$("class","flecha")),
-			div(
-				div(header(h1("Santo Rosario"),div("✝").att$("class","cruz"),hr())),
+			aside(a("")).att$("class","flechaIzq"),
+			header(h1("Santo Rosario").onclick$(() => {redirRet("");}),span("✝").att$("class","cruz"),hr()),
+			article(
 				p(a("Misterios Gozosos").att$("href","").att$("onclick","return empezar({mist : misterios.goz, nro: 1})"),p("Lunes y Sábado").att$("class","dias")),
 				p(a("Misterios Luminosos").att$("href","").att$("onclick","return empezar({mist : misterios.lum, nro: 1})"),p("Jueves").att$("class","dias")),
 				p(a("Misterios Dolorosos").att$("href","").att$("onclick","return empezar({mist : misterios.dol, nro: 1})"),p("Martes y Viernes").att$("class","dias")),
 				p(a("Misterios Gloriosos").att$("href","").att$("onclick","return empezar({mist : misterios.glo, nro: 1})"),p("Miércoles y Domingo").att$("class","dias"))
-			).att$("class","centro"),
-			div(a("").att$("class","flecha")),
+			),
+			aside(a("")).att$("class","flechaIzq"),
 			script(`	
 				switch(new Date().getDay()){
 					case 0:
@@ -47,7 +49,7 @@
 					break;
 				}
 			`)
-		).att$("style",divStyle),
+		).att$("class","container"),
 	"/ini": () => contenido({titulo: "Padre Hijo Espiritu Santo", texto : textos.inicio, contador: 0, prev: "", sig: ros.mist + ros.nro}),
 	"/pad": () => contenido({titulo: "Padre Nuestro", texto : textos.padreNuestro, contador: 0, prev: ros.mist + ros.nro, sig: "ave"}),
 	"/ave": () => contenido({titulo: "Avemaría", texto : textos.aveMaria, contador: 10, prev: "pad", sig: "glo"}),
