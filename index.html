@@ -50,7 +50,7 @@
 				}
 			`)
 		).att$("class","container"),
-	"/ini": () => contenido({titulo: "Padre Hijo Espiritu Santo", texto : textos.inicio, contador: 0, prev: "", sig: ros.mist + ros.nro}),
+	"/ini": () => contenido({titulo: "Padre Hijo Espíritu Santo", texto : textos.inicio, contador: 0, prev: "", sig: ros.mist + ros.nro}),
 	"/pad": () => contenido({titulo: "Padre Nuestro", texto : textos.padreNuestro, contador: 0, prev: ros.mist + ros.nro, sig: "ave"}),
 	"/ave": () => contenido({titulo: "Avemaría", texto : textos.aveMaria, contador: 10, prev: "pad", sig: "glo"}),
 	"/glo": () => contenido({titulo: "Gloria", texto : textos.gloria, contador: 0, prev: "ave", sig: ros.nro !==5 ? ros.mist + (ros.nro + 1) : "sal"}),
