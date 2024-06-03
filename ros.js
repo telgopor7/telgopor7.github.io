@@ -36,8 +36,9 @@ const textos = Object.freeze({
 	aveMaria : "Dios te Salve, María, llena eres de gracia, el Señor está contigo. Bendita tú eres entre todas las mujeres y bendito es el fruto de tu vientre, Jesús. Santa María, Madre de Dios, ruega por nosotros pecadores, ahora y en la hora de nuestra muerte. Amén",
 	padreNuestro : "Padre nuestro, que estás en el cielo, santificado sea tu nombre, venga a nosotros tu reino, hágase tu voluntad, en la tierra como en el cielo. Danos hoy nuestro pan de cada día, perdona nuestras ofensas, como también nosotros perdonamos a los que nos ofenden. No nos dejes caer en la tentación, y líbranos del mal. Amén",
 	gloria : "Gloria al Padre y al Hijo y al Espíritu Santo. Como era en el principio ahora y siempre, por los siglos de los siglos. Amén.",
-	salve : "Dios te Salve, Reina y Madre de misericordia, vida, dulzura y esperanza nuestra, Dios te salve.\nA ti llamamos los desterrados hijos de Eva; a ti suspiramos, gimiendo y llorando, en este valle de lágrimas. Ea, pues, Señora, abogada nuestra, vuelve a nosotros esos tus ojos misericordiosos, y, después de este destierro, muéstranos a Jesús, fruto bendito de tu vientre. ¡Oh clementísima, oh piadosa, oh dulce Virgen María!",
-	espirituSanto : "Ven Espíritu Santo, ven por medio de la poderosa intercesión del Inmaculado Corazón de María tu amadísima esposa"
+	madreGracia: "María es Madre de gracia y Madre de misericordia. En la vida y en la muerte, ampáranos Madre Nuestra.",
+	ohJes: "¡Oh Jesús mío perdona nuestros pecados, líbranos del fuego del Infierno, lleva al Cielo a todas las almas, especialmente a las más necesitadas de tu infinita misericordia! Amén.",
+	salve : "Dios te Salve, Reina y Madre de misericordia, vida, dulzura y esperanza nuestra, Dios te salve.\nA ti llamamos los desterrados hijos de Eva; a ti suspiramos, gimiendo y llorando, en este valle de lágrimas. Ea, pues, Señora, abogada nuestra, vuelve a nosotros esos tus ojos misericordiosos, y, después de este destierro, muéstranos a Jesús, fruto bendito de tu vientre. ¡Oh clementísima, oh piadosa, oh dulce Virgen María!"
 });
 
 const goz = [];
@@ -141,7 +142,7 @@ function mist(idx, misterio, ...m ){
 	ros.nro = idx + 1; 
 	
 	const ret = div(
-		aside(a("◀").att$("onclick","if(ros.nro != 1) ros.nro--; return redirRet(" + (ros.nro > 1 ? "\"glo\"" : "\"ini\"") +")")).att$("class","flechaIzq"),
+		aside(a("◀").att$("onclick","if(ros.nro != 1) ros.nro--; return redirRet(" + (ros.nro > 1 ? "\"jes\"" : "\"ini\"") +")")).att$("class","flechaIzq"),
 		header(h1("Santo Rosario").onclick$(() => {redirRet("");}),span("✝").att$("class","cruz"),hr()),
 		article(
 			h2(m[idx].title),

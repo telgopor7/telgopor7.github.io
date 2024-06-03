@@ -53,9 +53,9 @@
 	"/ini": () => contenido({titulo: "Padre Hijo Espíritu Santo", texto : textos.inicio, contador: 0, prev: "", sig: ros.mist + ros.nro}),
 	"/pad": () => contenido({titulo: "Padre Nuestro", texto : textos.padreNuestro, contador: 0, prev: ros.mist + ros.nro, sig: "ave"}),
 	"/ave": () => contenido({titulo: "Avemaría", texto : textos.aveMaria, contador: 10, prev: "pad", sig: "glo"}),
-	"/glo": () => contenido({titulo: "Gloria", texto : textos.gloria, contador: 0, prev: "ave", sig: ros.nro !==5 ? ros.mist + (ros.nro + 1) : "sal"}),
-	//Jaculatorias varias
-	//"/jac": () => contenido("Jaculatorias",jac[i],4),
+	"/glo": () => contenido({titulo: "Gloria", texto : textos.gloria, contador: 0, prev: "ave", sig: "mad"}),
+	"/mad": () => contenido({titulo: "María es Madre de gracia", texto : textos.madreGracia, contador: 0, prev: "glo", sig: "jes"}),
+	"/jes": () => contenido({titulo: "Oh Jesús mío ", texto : textos.ohJes, contador: 0, prev: "mad", sig: ros.nro !==5 ? ros.mist + (ros.nro + 1) : "sal"}),
 	"/sal": () => contenido({titulo:"Salve", texto : textos.salve, contador: 0, prev: "glo", sig: ""}),
 	
 	//Misterios Gozosos
