@@ -182,7 +182,7 @@ const bloque = [
 		title: textos.rosarioMaria.title,
 		content: textos.rosarioMaria.content,
 		totalCount: 1
-	},
+	}
 ];
 
 var Rosario =  [];
@@ -250,16 +250,14 @@ function init(misterio){
 		totalCount: 1
 	});
 	
-	
 	current.title = Rosario[current.idx].title;
 	current.content = Rosario[current.idx].content;
 	current.count = 1;
 }
 
 function next(){
-	if(Rosario[current.idx + 1] !== undefined) {
-		
-		if(Rosario[current.idx].totalCount > 1 && current.count !== current.totalCount) {
+	if(Rosario[current.idx + 1] !== undefined){
+		if(Rosario[current.idx].totalCount > 1 && current.count !== current.totalCount){
 			current.totalCount = Rosario[current.idx].totalCount;
 			current.count++;
 		}
@@ -282,9 +280,8 @@ function next(){
 }
 
 function prev(){
-	if(Rosario[current.idx - 1] !== undefined) {
-		
-		if(Rosario[current.idx].totalCount > 1 && current.count !== 1) {
+	if(Rosario[current.idx - 1] !== undefined){
+		if(Rosario[current.idx].totalCount > 1 && current.count !== 1){
 			current.totalCount = Rosario[current.idx].totalCount;
 			current.count--;
 		}
@@ -313,31 +310,31 @@ function prev(){
 
 document.getElementsByTagName("body")[0].onkeyup = logKey;
 
-function logKey(e) {
+function logKey(e){
 	if(e.code === "ArrowRight") document.querySelector(".flechaDer a").click();
 	if(e.code === "ArrowLeft") document.querySelector(".flechaIzq a").click();
 	if(e.code === "KeyQ" ) document.getElementsByTagName("h1")[0].click();
 }
 
-if ("serviceWorker" in navigator) {
-	try {
+if ("serviceWorker" in navigator){
+	try{
 		const registration = navigator.serviceWorker.register("/sw.js", {
 		scope: "/",
 		});
-		if (registration.installing) {
+		if (registration.installing){
 			console.log("Service worker installing");
-		} else if (registration.waiting) {
+		} else if (registration.waiting){
 			console.log("Service worker installed");
-		} else if (registration.active) {
+		} else if (registration.active){
 			console.log("Service worker active");
 		}
 	}
-	catch (error) {
+	catch(error){
 		console.error(`Registration failed with ${error}`);
 	}
 }
 
-function addToday() {
+function addToday(){
 	const n = document.createElement("strong");
 	n.innerHTML = " (Hoy)";
 	

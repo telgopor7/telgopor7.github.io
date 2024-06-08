@@ -1,4 +1,3 @@
-
 const addResourcesToCache = async (resources) => {
   const cache = await caches.open("v1");
   await cache.addAll(resources);
@@ -24,18 +23,18 @@ const putInCache = async (request, response) => {
 
 const cacheFirst = async ({ request, fallbackUrl }) => {
 	const responseFromCache = await caches.match(request);
-	if (responseFromCache) {
+	if (responseFromCache){
 		return responseFromCache;
 	}
 
-	try {
+	try{
 		const responseFromNetwork = await fetch(request);
 		putInCache(request, responseFromNetwork.clone());
 		return responseFromNetwork;
 	}
-	catch (error) {
+	catch(error){
 		const fallbackResponse = await caches.match(fallbackUrl);
-		if (fallbackResponse) {
+		if (fallbackResponse){
 		  return fallbackResponse;
 		}
 		

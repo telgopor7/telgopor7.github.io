@@ -1,24 +1,25 @@
-function tag(name, ...children) {
+function tag(name, ...children){
     const result = document.createElement(name);
-    for (const child of children) {
-        if (typeof(child) === 'string') {
+    for(const child of children) {
+        if(typeof(child) === 'string'){
             result.appendChild(document.createTextNode(child));
-        } else {
+        }
+		else{
             result.appendChild(child);
         }
     }
 
-    result.att$ = function(name, value) {
+    result.att$ = function(name, value){
         this.setAttribute(name, value);
         return this;
     };
 
-	result.onevent$ = function(event, callback) {
+	result.onevent$ = function(event, callback){
         this.addEventListener(event, callback);
         return this;
     };
 	
-	result.onclick$ = function(callback) {
+	result.onclick$ = function(callback){
         this.onevent$("click", callback);
 		return this;
     };
@@ -28,7 +29,7 @@ function tag(name, ...children) {
 
 const grechaTags = ["canvas", "h1", "h2", "h3", "p", "a", "div", "span", "select"];
 
-grechaTags.push = function() { Array.prototype.push.apply(this, arguments);  refreshTags();};
+grechaTags.push = function() {Array.prototype.push.apply(this, arguments); refreshTags();};
 
 function refreshTags(){
 	for (let tagName of grechaTags) {
@@ -36,24 +37,24 @@ function refreshTags(){
 	}
 }
 
-function img(src) {
+function img(src){
     return tag("img").att$("src", src);
 }
 
-function input(type) {
+function input(type){
     return tag("input").att$("type", type);
 }
 
-function router(routes) {
+function router(routes){
     let result = div();
 
-    function syncHash() {
+    function syncHash(){
         let hashLocation = document.location.hash.split('#')[1];
-        if (!hashLocation) {
+        if(!hashLocation){
             hashLocation = '/';
         }
 
-        if (!(hashLocation in routes)) {
+        if(!(hashLocation in routes)){
             // TODO(#2): make the route404 customizable in the router component
             const route404 = '/404';
 
