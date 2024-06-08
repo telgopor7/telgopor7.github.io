@@ -187,16 +187,12 @@ const bloque = [
 
 var Rosario =  [];
 
-const status = {
-	idx: 0,
-	count: 1,
-};
-
 const current = {
 	title: "",
 	content: "",
 	count: 1,
-	totalCount : 1
+	totalCount : 1,
+	idx: 0
 };
 
 function init(misterio){
@@ -255,26 +251,26 @@ function init(misterio){
 	});
 	
 	
-	current.title = Rosario[status.idx].title;
-	current.content = Rosario[status.idx].content;
+	current.title = Rosario[current.idx].title;
+	current.content = Rosario[current.idx].content;
 	current.count = 1;
 }
 
 function next(){
-	if(Rosario[status.idx + 1] !== undefined) {
+	if(Rosario[current.idx + 1] !== undefined) {
 		
-		if(Rosario[status.idx].totalCount > 1 && current.count !== current.totalCount) {
-			current.totalCount = Rosario[status.idx].totalCount;
+		if(Rosario[current.idx].totalCount > 1 && current.count !== current.totalCount) {
+			current.totalCount = Rosario[current.idx].totalCount;
 			current.count++;
 		}
 		else{
 			current.totalCount = 1;
 			current.count = 1;
-			status.idx++;
+			current.idx++;
 		}
-		current.title = Rosario[status.idx].title;
-		current.content = Rosario[status.idx].content;
-		current.totalCount = Rosario[status.idx].totalCount;
+		current.title = Rosario[current.idx].title;
+		current.content = Rosario[current.idx].content;
+		current.totalCount = Rosario[current.idx].totalCount;
 		
 		r.refresh();
 	}
@@ -286,23 +282,23 @@ function next(){
 }
 
 function prev(){
-	if(Rosario[status.idx - 1] !== undefined) {
+	if(Rosario[current.idx - 1] !== undefined) {
 		
-		if(Rosario[status.idx].totalCount > 1 && current.count !== 1) {
-			current.totalCount = Rosario[status.idx].totalCount;
+		if(Rosario[current.idx].totalCount > 1 && current.count !== 1) {
+			current.totalCount = Rosario[current.idx].totalCount;
 			current.count--;
 		}
 		else{
-			if(Rosario[status.idx - 1].totalCount !== 1){
-				current.count = Rosario[status.idx - 1].totalCount;
-				current.totalCount = Rosario[status.idx - 1].totalCount;
+			if(Rosario[current.idx - 1].totalCount !== 1){
+				current.count = Rosario[current.idx - 1].totalCount;
+				current.totalCount = Rosario[current.idx - 1].totalCount;
 			}
-			status.idx--;		
+			current.idx--;		
 		}
 		
-		current.title = Rosario[status.idx].title;
-		current.content = Rosario[status.idx].content;
-		current.totalCount = Rosario[status.idx].totalCount;
+		current.title = Rosario[current.idx].title;
+		current.content = Rosario[current.idx].content;
+		current.totalCount = Rosario[current.idx].totalCount;
 		
 		r.refresh();
 	}
