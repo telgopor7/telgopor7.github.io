@@ -1,16 +1,5 @@
 //https://coolors.co/ffffea-722f37-4b5267
 
-const n = document.createElement("strong");
-n.innerHTML = " (Hoy)"; 
-
-document.getElementsByTagName("body")[0].onkeyup = logKey;
-
-function logKey(e) {
-	if(e.code === "ArrowRight") document.querySelector(".flechaDer a").click();
-	if(e.code === "ArrowLeft") document.querySelector(".flechaIzq a").click();
-	if(e.code === "KeyQ" ) document.getElementsByTagName("h1")[0].click();
-}
-
 const misterios = Object.freeze({
     goz: "goz",
     lum: "lum",
@@ -18,27 +7,48 @@ const misterios = Object.freeze({
 	glo: "glo"
 });
 
-const ros = {
-	mist: 0,
-	nro: 0
-};
-
-let totalCount = 10;
-let count = 1;
-
 const textos = Object.freeze({
-	inicio :`En el nombre del Padre y del Hijo y del Espíritu Santo. 
-	Dios mío, ven en mi auxilio.
-	Señor, date prisa en socorrerme.
-	Gloria al Padre y al Hijo y al Espíritu Santo. 
-	Como era en el principio, ahora y siempre, 
-	por los siglos de los siglos. Amén.`,
-	aveMaria : "Dios te Salve, María, llena eres de gracia, el Señor está contigo. Bendita tú eres entre todas las mujeres y bendito es el fruto de tu vientre, Jesús. Santa María, Madre de Dios, ruega por nosotros pecadores, ahora y en la hora de nuestra muerte. Amén",
-	padreNuestro : "Padre nuestro, que estás en el cielo, santificado sea tu nombre, venga a nosotros tu reino, hágase tu voluntad, en la tierra como en el cielo. Danos hoy nuestro pan de cada día, perdona nuestras ofensas, como también nosotros perdonamos a los que nos ofenden. No nos dejes caer en la tentación, y líbranos del mal. Amén",
-	gloria : "Gloria al Padre y al Hijo y al Espíritu Santo. Como era en el principio ahora y siempre, por los siglos de los siglos. Amén.",
-	madreGracia: "María es Madre de gracia y Madre de misericordia. En la vida y en la muerte, ampáranos Madre Nuestra.",
-	ohJes: "¡Oh Jesús mío perdona nuestros pecados, líbranos del fuego del Infierno, lleva al Cielo a todas las almas, especialmente a las más necesitadas de tu infinita misericordia! Amén.",
-	salve : "Dios te Salve, Reina y Madre de misericordia, vida, dulzura y esperanza nuestra, Dios te salve.\nA ti llamamos los desterrados hijos de Eva; a ti suspiramos, gimiendo y llorando, en este valle de lágrimas. Ea, pues, Señora, abogada nuestra, vuelve a nosotros esos tus ojos misericordiosos, y, después de este destierro, muéstranos a Jesús, fruto bendito de tu vientre. ¡Oh clementísima, oh piadosa, oh dulce Virgen María!"
+	inicio :{
+		title: "Padre Hijo Espíritu Santo",
+		content: `En el nombre del Padre y del Hijo y del Espíritu Santo.
+		Dios mío, ven en mi auxilio.
+		Señor, date prisa en socorrerme.
+		Gloria al Padre y al Hijo y al Espíritu Santo.
+		Como era en el principio, ahora y siempre,
+		por los siglos de los siglos. Amén.`
+	},
+	padreNuestro : {
+		title: "Padre Nuestro",
+		content: "Padre nuestro, que estás en el cielo, santificado sea tu nombre, venga a nosotros tu reino, hágase tu voluntad, en la tierra como en el cielo. Danos hoy nuestro pan de cada día, perdona nuestras ofensas, como también nosotros perdonamos a los que nos ofenden. No nos dejes caer en la tentación, y líbranos del mal. Amén",
+	},
+	aveMaria : {
+		title: "Avemaría",
+		content:"Dios te Salve, María, llena eres de gracia, el Señor está contigo. Bendita tú eres entre todas las mujeres y bendito es el fruto de tu vientre, Jesús. Santa María, Madre de Dios, ruega por nosotros pecadores, ahora y en la hora de nuestra muerte. Amén"
+	},
+	gloria : {
+		title: "Gloria",
+		content: "Gloria al Padre y al Hijo y al Espíritu Santo. Como era en el principio ahora y siempre, por los siglos de los siglos. Amén."
+	},
+	madreGracia: {
+		title : "María es Madre de gracia",
+		content: "María es Madre de gracia y Madre de misericordia. En la vida y en la muerte, ampáranos Madre Nuestra.",
+	},
+	santisimo: {
+		title:"Santísimo Sacramento",
+		content: "Sea amado y adorado en todo momento Jesús en el Santísimo Sacramento."
+	},
+	ohJes: {
+		title: "Oh Jesús mío",
+		content :"¡Oh Jesús mío perdona nuestros pecados, líbranos del fuego del Infierno, lleva al Cielo a todas las almas, especialmente a las más necesitadas de tu infinita misericordia! Amén."
+	},
+	rosarioMaria: {
+		title: "Rosario de María",
+		content: "El Rosario de María nos libre de todo mal, alabemos noche y día a la Reina Celestial."
+	},
+	salve : {
+		title : "Salve",
+		content :"Dios te Salve, Reina y Madre de misericordia, vida, dulzura y esperanza nuestra, Dios te salve.\nA ti llamamos los desterrados hijos de Eva; a ti suspiramos, gimiendo y llorando, en este valle de lágrimas. Ea, pues, Señora, abogada nuestra, vuelve a nosotros esos tus ojos misericordiosos, y, después de este destierro, muéstranos a Jesús, fruto bendito de tu vientre. ¡Oh clementísima, oh piadosa, oh dulce Virgen María!"
+	}
 });
 
 const goz = [];
@@ -137,73 +147,201 @@ glo.push(
 	},
 );
 
-function mist(idx, misterio, ...m ){
-	ros.mist = misterio; 
-	ros.nro = idx + 1; 
+const bloque = [
+	{
+		title: textos.padreNuestro.title,
+		content: textos.padreNuestro.content,
+		totalCount: 1
+	},
+	{
+		title: textos.aveMaria.title,
+		content: textos.aveMaria.content,
+		totalCount: 10
+	},
+	{
+		title: textos.gloria.title,
+		content: textos.gloria.content,
+		totalCount: 1
+	},
+	{
+		title: textos.madreGracia.title,
+		content: textos.madreGracia.content,
+		totalCount: 1
+	},
+	{
+		title: textos.santisimo.title,
+		content: textos.santisimo.content,
+		totalCount: 1
+	},
+	{
+		title: textos.ohJes.title,
+		content: textos.ohJes.content,
+		totalCount: 1
+	},
+	{
+		title: textos.rosarioMaria.title,
+		content: textos.rosarioMaria.content,
+		totalCount: 1
+	},
+];
+
+var Rosario =  [];
+
+const status = {
+	idx: 0,
+	count: 1,
+};
+
+const current = {
+	title: "",
+	content: "",
+	count: 1,
+	totalCount : 1
+};
+
+function init(misterio){
+	Rosario.push({
+		title: textos.inicio.title,
+		content: textos.inicio.content,
+		totalCount: 1
+	});
+	for(let i = 0; i < 5; i++){
+		switch(misterio){
+		case misterios.goz:
+			Rosario.push(
+				{
+					title: goz[i].title,
+					content: goz[i].content,
+					totalCount: 1
+				}
+			);
+			Rosario.push(...bloque);
+		break;
+		case misterios.lum:
+			Rosario.push(
+				{
+					title: lum[i].title,
+					content: lum[i].content,
+					totalCount: 1
+				}
+			);
+			Rosario.push(...bloque);
+		break;
+		case misterios.dol:
+			Rosario.push(
+				{
+					title: dol[i].title,
+					content: dol[i].content,
+					totalCount: 1
+				}
+			);
+			Rosario.push(...bloque);
+		break;
+		case misterios.glo:
+			Rosario.push(
+				{
+					title: glo[i].title,
+					content: glo[i].content,
+					totalCount: 1
+				}
+			);
+			Rosario.push(...bloque);
+		}
+	}
+	Rosario.push({
+		title: textos.salve.title,
+		content: textos.salve.content,
+		totalCount: 1
+	});
 	
-	const ret = div(
-		aside(a("◀").att$("onclick","if(ros.nro != 1) ros.nro--; return redirRet(" + (ros.nro > 1 ? "\"jes\"" : "\"ini\"") +")")).att$("class","flechaIzq"),
-		header(h1("Santo Rosario").onclick$(() => {redirRet("");}),span("✝").att$("class","cruz"),hr()),
-		article(
-			h2(m[idx].title),
-			p(m[idx].content).att$("class","texto")
-		),
-		aside(a("▶").att$("onclick","return redirAv(\"pad\")")).att$("class","flechaDer"),
-
-	).att$("class","container");
-
-	return ret;
+	
+	current.title = Rosario[status.idx].title;
+	current.content = Rosario[status.idx].content;
+	current.count = 1;
 }
 
-function redirRet(prev){
-	if(prev === "ave") count = 10;
-	if(prev !== "pad" || count <= 1) {
-		window.location.href = "../#/" + prev;
-		return false;
-	}
-	else{
-		count--;
+function next(){
+	if(Rosario[status.idx + 1] !== undefined) {
+		
+		if(Rosario[status.idx].totalCount > 1 && current.count !== current.totalCount) {
+			current.totalCount = Rosario[status.idx].totalCount;
+			current.count++;
+		}
+		else{
+			current.totalCount = 1;
+			current.count = 1;
+			status.idx++;
+		}
+		current.title = Rosario[status.idx].title;
+		current.content = Rosario[status.idx].content;
+		current.totalCount = Rosario[status.idx].totalCount;
+		
 		r.refresh();
 	}
+	else{
+		window.location.href = "../";
+	}
+	
+	return false;
 }
 
-function redirAv(sig){
+function prev(){
+	if(Rosario[status.idx - 1] !== undefined) {
 		
-	if(sig !== "glo" || count >= totalCount) {
-		window.location.href = "../#/" + sig;
-		count = 1;
-		return false;
-	}
-	else{
-		count++;
+		if(Rosario[status.idx].totalCount > 1 && current.count !== 1) {
+			current.totalCount = Rosario[status.idx].totalCount;
+			current.count--;
+		}
+		else{
+			if(Rosario[status.idx - 1].totalCount !== 1){
+				current.count = Rosario[status.idx - 1].totalCount;
+				current.totalCount = Rosario[status.idx - 1].totalCount;
+			}
+			status.idx--;		
+		}
+		
+		current.title = Rosario[status.idx].title;
+		current.content = Rosario[status.idx].content;
+		current.totalCount = Rosario[status.idx].totalCount;
+		
 		r.refresh();
 	}
-}
-
-function contenido(params){
-	if (params.contador != 0) totalCount = params.contador;
-	const ret = div(
-		aside(a("◀").att$("onclick","return redirRet(\"" + params.prev + "\")")).att$("class","flechaIzq"),
-		header(h1("Santo Rosario").onclick$(() => {redirRet("");}),span("✝").att$("class","cruz"),hr()),
-		article(
-			params.titulo? h2(params.titulo) : "",
-			p(params.texto).att$("class","texto"),
-			params.contador != 0 ? h2(count + "/" + totalCount) : "",
-		),
-		aside(a("▶").att$("onclick","return redirAv(\"" + params.sig + "\")")).att$("class","flechaDer"),
-	).att$("class","container");
-
-	return ret;
-}
-
-function empezar(misterio){
-	if(misterio !== null){
-		ros.mist = misterio.mist;
-		ros.nro = misterio.nro;
-		
-		if(misterio.nro === 1) redirAv("ini");
-		else redirAv(ros.mist + ros.nro);
+	else{
+		window.location.href = "../";
 	}
+		
+	r.refresh();
 
 	return false;
+}
+
+document.getElementsByTagName("body")[0].onkeyup = logKey;
+
+function logKey(e) {
+	if(e.code === "ArrowRight") document.querySelector(".flechaDer a").click();
+	if(e.code === "ArrowLeft") document.querySelector(".flechaIzq a").click();
+	if(e.code === "KeyQ" ) document.getElementsByTagName("h1")[0].click();
+}
+
+function addToday() {
+	const n = document.createElement("strong");
+	n.innerHTML = " (Hoy)";
+	
+	switch(new Date().getDay()){
+		case 0:
+		case 3:
+		document.getElementsByClassName("dias")[3].appendChild(n);
+		break;
+		case 1:
+		case 6:
+		document.getElementsByClassName("dias")[0].appendChild(n);
+		break;
+		case 2:
+		case 5:
+		document.getElementsByClassName("dias")[2].appendChild(n);
+		break;
+		case 4:
+		document.getElementsByClassName("dias")[1].appendChild(n);
+		break;
+	}
 }

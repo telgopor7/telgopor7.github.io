@@ -22,66 +22,26 @@
 	"/": () => 
 		div(
 			aside(a("")).att$("class","flechaIzq"),
-			header(h1("Santo Rosario").onclick$(() => {redirRet("");}),span("✝").att$("class","cruz"),hr()),
+			header(h1("Santo Rosario"),span("✝").att$("class","cruz"),hr()),
 			article(
-				p(a("Misterios Gozosos").att$("href","").att$("onclick","return empezar({mist : misterios.goz, nro: 1})"),p("Lunes y Sábado").att$("class","dias")),
-				p(a("Misterios Luminosos").att$("href","").att$("onclick","return empezar({mist : misterios.lum, nro: 1})"),p("Jueves").att$("class","dias")),
-				p(a("Misterios Dolorosos").att$("href","").att$("onclick","return empezar({mist : misterios.dol, nro: 1})"),p("Martes y Viernes").att$("class","dias")),
-				p(a("Misterios Gloriosos").att$("href","").att$("onclick","return empezar({mist : misterios.glo, nro: 1})"),p("Miércoles y Domingo").att$("class","dias"))
+				p(a("Misterios Gozosos").att$("href","#/r").att$("onclick","init(misterios.goz); window.location.href = \"#/r\";"),p("Lunes y Sábado").att$("class","dias")),
+				p(a("Misterios Luminosos").att$("href","#/r").att$("onclick","init(misterios.lum); window.location.href = \"#/r\";"),p("Jueves").att$("class","dias")),
+				p(a("Misterios Dolorosos").att$("href","#/r").att$("onclick","init(misterios.dol); window.location.href = \"#/r\";"),p("Martes y Viernes").att$("class","dias")),
+				p(a("Misterios Gloriosos").att$("href","#/r").att$("onclick","init(misterios.glo); window.location.href = \"#/r\";"),p("Miércoles y Domingo").att$("class","dias"))
 			),
-			aside(a("")).att$("class","flechaIzq"),
-			script(`	
-				switch(new Date().getDay()){
-					case 0:
-					case 3:
-					document.getElementsByClassName("dias")[3].appendChild(n);
-					break;
-					case 1:
-					case 6:
-					document.getElementsByClassName("dias")[0].appendChild(n);
-					break;
-					case 2:
-					case 5:
-					document.getElementsByClassName("dias")[2].appendChild(n);
-					break;
-					case 4:
-					document.getElementsByClassName("dias")[1].appendChild(n);
-					break;
-				}
-			`)
+			aside(a("")).att$("class","flechaDer"),
+			script("addToday();")
 		).att$("class","container"),
-	"/ini": () => contenido({titulo: "Padre Hijo Espíritu Santo", texto : textos.inicio, contador: 0, prev: "", sig: ros.mist + ros.nro}),
-	"/pad": () => contenido({titulo: "Padre Nuestro", texto : textos.padreNuestro, contador: 0, prev: ros.mist + ros.nro, sig: "ave"}),
-	"/ave": () => contenido({titulo: "Avemaría", texto : textos.aveMaria, contador: 10, prev: "pad", sig: "glo"}),
-	"/glo": () => contenido({titulo: "Gloria", texto : textos.gloria, contador: 0, prev: "ave", sig: "mad"}),
-	"/mad": () => contenido({titulo: "María es Madre de gracia", texto : textos.madreGracia, contador: 0, prev: "glo", sig: "jes"}),
-	"/jes": () => contenido({titulo: "Oh Jesús mío ", texto : textos.ohJes, contador: 0, prev: "mad", sig: ros.nro !==5 ? ros.mist + (ros.nro + 1) : "sal"}),
-	"/sal": () => contenido({titulo:"Salve", texto : textos.salve, contador: 0, prev: "glo", sig: ""}),
-	
-	//Misterios Gozosos
-	"/goz1": () => mist(0, misterios.goz, ...goz),
-	"/goz2": () => mist(1, misterios.goz, ...goz),
-	"/goz3": () => mist(2, misterios.goz, ...goz),
-	"/goz4": () => mist(3, misterios.goz, ...goz),
-	"/goz5": () => mist(4, misterios.goz, ...goz),
-	//Misterios Luminosos
-	"/lum1": () => mist(0, misterios.lum, ...lum),
-	"/lum2": () => mist(1, misterios.lum, ...lum),
-	"/lum3": () => mist(2, misterios.lum, ...lum),
-	"/lum4": () => mist(3, misterios.lum, ...lum),
-	"/lum5": () => mist(4, misterios.lum, ...lum),
-	//Misterios Dolorosos
-	"/dol1": () => mist(0, misterios.dol, ...dol),
-	"/dol2": () => mist(1, misterios.dol, ...dol),
-	"/dol3": () => mist(2, misterios.dol, ...dol),
-	"/dol4": () => mist(3, misterios.dol, ...dol),
-	"/dol5": () => mist(4, misterios.dol, ...dol),
-	//Misterios Gloriosos
-	"/glo1": () => mist(0, misterios.glo, ...glo),
-	"/glo2": () => mist(1, misterios.glo, ...glo),
-	"/glo3": () => mist(2, misterios.glo, ...glo),
-	"/glo4": () => mist(3, misterios.glo, ...glo),
-	"/glo5": () => mist(4, misterios.glo, ...glo)
+		"/r": () => div(
+				aside(a("◀").att$("href","").att$("onclick","return prev();")).att$("class","flechaIzq"),
+				header(h1("Santo Rosario").onclick$(() => {window.location.href = "../";}),span("✝").att$("class","cruz"),hr()),
+				article(
+					h2(current.title),
+					p(current.content).att$("class","texto"),
+					h2(current.totalCount !== 1? current.count + "/" + current.totalCount : "")
+				),
+				aside(a("▶").att$("href","").att$("onclick","return next();")).att$("class","flechaDer"),
+			).att$("class","container")
 	});
 		
 	main.appendChild(r);
