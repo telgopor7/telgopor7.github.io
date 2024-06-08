@@ -323,6 +323,24 @@ function logKey(e) {
 	if(e.code === "KeyQ" ) document.getElementsByTagName("h1")[0].click();
 }
 
+if ("serviceWorker" in navigator) {
+	try {
+		const registration = navigator.serviceWorker.register("/sw.js", {
+		scope: "/",
+		});
+		if (registration.installing) {
+			console.log("Service worker installing");
+		} else if (registration.waiting) {
+			console.log("Service worker installed");
+		} else if (registration.active) {
+			console.log("Service worker active");
+		}
+	}
+	catch (error) {
+		console.error(`Registration failed with ${error}`);
+	}
+}
+
 function addToday() {
 	const n = document.createElement("strong");
 	n.innerHTML = " (Hoy)";

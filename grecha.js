@@ -14,7 +14,7 @@ function tag(name, ...children) {
     };
 
 	result.onevent$ = function(event, callback) {
-        this.addEventListener(event,callback);
+        this.addEventListener(event, callback);
         return this;
     };
 	
