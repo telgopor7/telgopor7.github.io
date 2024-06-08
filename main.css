@@ -5,7 +5,7 @@
 }
 @font-face {
 	font-family: "kjv";
-	src:  url("/KJV1611.woff2") format("woff2");
+	src: url("/KJV1611.woff2") format("woff2");
 	unicode-range: U+000-5FF;
 }
 @font-face {
@@ -19,15 +19,16 @@ body {
 	font-family: "EB Garamond",Garamond, Georgia;
 	background-color: var(--backColor);
 	padding-left: 5vw;
-	padding-right:5vw;
+	padding-right: 5vw;
 }
 .container{
-	display: grid;grid-template-areas:
+	display: grid;
+	grid-template-areas:
 	"header header header"
 	"sidebar content sidebar2";
 	grid-template-columns: 0.5fr 3fr 0.5fr;
 	grid-auto-rows: 0.5fr 3fr;"
-	width:100vw;
+	width: 100vw;
 }
 header{
 	grid-area: header;
@@ -45,18 +46,18 @@ aside .flechaIzq{
 }
 aside a
 {
-	text-decoration:none;
+	text-decoration: none;
 	cursor: pointer;
-	user-select : none;
+	user-select: none;
 	-webkit-user-select: none;
-	padding-top:10vh;
+	padding-top: 10vh;
 	padding-right: 2ch;
 	padding-left: 2ch;
 }
 .flechaIzq a:focus,
 .flechaDer a:focus{
 	border: 2px solid var(--frontColor);
-	outline:none;
+	outline: none;
 }
 #main {
 	padding-top: 2ch;
@@ -76,8 +77,8 @@ h2 {
 	line-height: 1.2;
 }
 hr{
-	color:var(--frontColor);
-	border-color:var(--frontColor);
+	color: var(--frontColor);
+	border-color: var(--frontColor);
 }
 a:visited{
 	color: var(--frontColor);
@@ -95,16 +96,16 @@ article a{
 article .dias{
 	line-height: 1;
 	font-size: 16px;
-	margin:0px;	
-	color:var(--textColor);
+	margin: 0px;	
+	color: var(--textColor);
 }
 a:focus {
 	border: 2px solid var(--frontColor);
-	padding:0.5px;
-	outline:none;
+	padding: 0.5px;
+	outline: none;
 }
 .texto{
-	color:var(--textColor);
+	color: var(--textColor);
 }
 .cruz{
 	text-align: center;
