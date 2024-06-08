@@ -23,7 +23,7 @@
 	const r = router({
 	"/": () => 
 		div(
-			aside(a("")).att$("class","flechaIzq"),
+			aside(),
 			header(h1("Santo Rosario"),span("✝").att$("class","cruz"),hr()),
 			article(
 				p(a("Misterios Gozosos").att$("href","#/r").att$("onclick","init(misterios.goz); window.location.href = \"#/r\";"),p("Lunes y Sábado").att$("class","dias")),
@@ -31,7 +31,7 @@
 				p(a("Misterios Dolorosos").att$("href","#/r").att$("onclick","init(misterios.dol); window.location.href = \"#/r\";"),p("Martes y Viernes").att$("class","dias")),
 				p(a("Misterios Gloriosos").att$("href","#/r").att$("onclick","init(misterios.glo); window.location.href = \"#/r\";"),p("Miércoles y Domingo").att$("class","dias"))
 			),
-			aside(a("")).att$("class","flechaDer"),
+			aside(),
 			script("addToday();")
 		).att$("class","container"),
 		"/r": () => div(
