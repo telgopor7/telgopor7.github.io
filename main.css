@@ -50,9 +50,9 @@ aside a
 	cursor: pointer;
 	user-select: none;
 	-webkit-user-select: none;
-	padding-top: 10vh;
 	padding-right: 2ch;
 	padding-left: 2ch;
+	color: var(--frontColor);
 }
 .flechaIzq a:focus,
 .flechaDer a:focus{
