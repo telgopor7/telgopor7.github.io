@@ -201,49 +201,57 @@ function init(misterio){
 		content: textos.inicio.content,
 		totalCount: 1
 	});
-	for(let i = 0; i < 5; i++){
+	
 		switch(misterio){
 		case misterios.goz:
-			Rosario.push(
-				{
-					title: goz[i].title,
-					content: goz[i].content,
-					totalCount: 1
-				}
-			);
-			Rosario.push(...bloque);
+			for(let i = 0; i < 5; i++){
+				Rosario.push(
+					{
+						title: goz[i].title,
+						content: goz[i].content,
+						totalCount: 1
+					}
+				);
+				Rosario.push(...bloque);
+			}
 		break;
 		case misterios.lum:
-			Rosario.push(
-				{
-					title: lum[i].title,
-					content: lum[i].content,
-					totalCount: 1
-				}
-			);
-			Rosario.push(...bloque);
+			for(let i = 0; i < 5; i++){
+				Rosario.push(
+					{
+						title: lum[i].title,
+						content: lum[i].content,
+						totalCount: 1
+					}
+				);
+				Rosario.push(...bloque);
+			}
 		break;
 		case misterios.dol:
-			Rosario.push(
-				{
-					title: dol[i].title,
-					content: dol[i].content,
-					totalCount: 1
-				}
-			);
-			Rosario.push(...bloque);
+			for(let i = 0; i < 5; i++){
+				Rosario.push(
+					{
+						title: dol[i].title,
+						content: dol[i].content,
+						totalCount: 1
+					}
+				);
+				Rosario.push(...bloque);
+			}
 		break;
 		case misterios.glo:
-			Rosario.push(
-				{
-					title: glo[i].title,
-					content: glo[i].content,
-					totalCount: 1
-				}
-			);
-			Rosario.push(...bloque);
+			for(let i = 0; i < 5; i++){
+				Rosario.push(
+					{
+						title: glo[i].title,
+						content: glo[i].content,
+						totalCount: 1
+					}
+				);
+				Rosario.push(...bloque);
+			}
 		}
-	}
+	
 	Rosario.push({
 		title: textos.salve.title,
 		content: textos.salve.content,
