@@ -308,12 +308,12 @@ function prev(){
 	return false;
 }
 
-document.getElementsByTagName("body")[0].onkeyup = logKey;
+document.getElementsByTagName("body")[0].onkeydown = logKey;
 
 function logKey(e){
-	if(e.code === "ArrowRight") document.querySelector(".flechaDer a").click();
-	if(e.code === "ArrowLeft") document.querySelector(".flechaIzq a").click();
-	if(e.code === "KeyQ" ) document.getElementsByTagName("h1")[0].click();
+	if(e.key === "ArrowRight") document.querySelector(".flechaDer a").click();
+	if(e.key === "ArrowLeft") document.querySelector(".flechaIzq a").click();
+	if(e.key === "KeyQ" ) document.getElementsByTagName("h1")[0].click();
 }
 
 if ("serviceWorker" in navigator){
