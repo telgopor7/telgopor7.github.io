@@ -55,11 +55,9 @@ function router(routes){
         }
 
         if(!(hashLocation in routes)){
-            // TODO(#2): make the route404 customizable in the router component
-            const route404 = '/404';
-
-            console.assert(route404 in routes);
-            hashLocation = route404;
+            //En el grecha original aca habia un 404 y tal, para esta app es preferible volver a "/"
+			window.location.href = "../";
+			return;
         }
 
         result.replaceChildren(routes[hashLocation]());

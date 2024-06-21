@@ -32,9 +32,11 @@
 				p(a("Misterios Gloriosos").att$("href","#/r").att$("onclick","init(misterios.glo); window.location.href = \"#/r\";"),p("Miércoles y Domingo").att$("class","dias"))
 			),
 			aside(),
-			script("addToday();")
+			script("comienzo();")
 		).att$("class","container"),
-		"/r": () => div(
+		"/r": () =>
+				div(
+				script("validarEstado();"),
 				aside(a("◀").att$("href","").att$("onclick","return prev();")).att$("class","flechaIzq"),
 				header(h1("Santo Rosario").onclick$(() => {window.location.href = "../";}),span("✝").att$("class","cruz"),hr()),
 				article(

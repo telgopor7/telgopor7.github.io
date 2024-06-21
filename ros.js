@@ -316,6 +316,12 @@ function prev(){
 	return false;
 }
 
+function validarEstado(){
+	if(current.title === "" && current.content === ""){
+		window.location.href = "../";
+	}
+}
+
 document.getElementsByTagName("body")[0].onkeydown = logKey;
 
 function logKey(e){
@@ -342,7 +348,14 @@ if ("serviceWorker" in navigator){
 	}
 }
 
-function addToday(){
+function comienzo(){
+	
+	current.title = "";
+	current.content = "";
+	current.count = 1;
+	current.totalCount  = 1;
+	current.idx = 0;
+	
 	const n = document.createElement("strong");
 	n.innerHTML = " (Hoy)";
 	
