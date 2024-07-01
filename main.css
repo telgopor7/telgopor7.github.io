@@ -49,8 +49,6 @@ aside a
 	text-decoration: none;
 	cursor: pointer;
 	-webkit-user-select: none;
-	padding-right: 2ch;
-	padding-left: 2ch;
 	outline: none;
 }
 .flechaIzq a:focus,
@@ -104,6 +102,8 @@ a:focus {
 }
 .texto{
 	color: var(--textColor);
+	padding-right: 2ch;
+	padding-left: 2ch;
 }
 .cruz{
 	text-align: center;
