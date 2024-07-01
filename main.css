@@ -48,17 +48,16 @@ aside a
 {
 	text-decoration: none;
 	cursor: pointer;
-	user-select: none;
 	-webkit-user-select: none;
 	padding-right: 2ch;
 	padding-left: 2ch;
-	color: var(--frontColor);
+	outline: none;
 }
 .flechaIzq a:focus,
 .flechaDer a:focus{
-	border: 2px solid var(--frontColor);
 	outline: none;
 }
+
 #main {
 	padding-top: 2ch;
 	text-align: center;
@@ -100,7 +99,6 @@ article .dias{
 	color: var(--textColor);
 }
 a:focus {
-	border: 2px solid var(--frontColor);
 	padding: 0.5px;
 	outline: none;
 }
