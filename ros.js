@@ -10,12 +10,7 @@ const misterios = Object.freeze({
 const textos = Object.freeze({
 	inicio :{
 		title: "Padre Hijo Espíritu Santo",
-		content: `En el nombre del Padre y del Hijo y del Espíritu Santo.
-		Dios mío, ven en mi auxilio.
-		Señor, date prisa en socorrerme.
-		Gloria al Padre y al Hijo y al Espíritu Santo.
-		Como era en el principio, ahora y siempre,
-		por los siglos de los siglos. Amén.`
+		content: "En el nombre del Padre y del Hijo y del Espíritu Santo.\nDios mío, ven en mi auxilio.\nSeñor, date prisa en socorrerme.\nGloria al Padre y al Hijo y al Espíritu Santo.\nComo era en el principio, ahora y siempre,por los siglos de los siglos. Amén."
 	},
 	padreNuestro : {
 		title: "Padre Nuestro",
