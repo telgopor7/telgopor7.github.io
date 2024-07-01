@@ -37,14 +37,14 @@
 		"/r": () =>
 				div(
 				script("validarEstado();"),
-				aside(a("◀").att$("href","").att$("onclick","return prev();")).att$("class","flechaIzq"),
+				aside(a("◀").att$("style","color: var(--frontColor);").att$("href","").att$("onclick","return prev();")).att$("class","flechaIzq"),
 				header(h1("Santo Rosario").onclick$(() => {window.location.href = "../";}),span("✝").att$("class","cruz"),hr()),
 				article(
 					h2(current.title),
 					p(current.content).att$("class","texto"),
 					h2(current.totalCount !== 1? current.count + "/" + current.totalCount : "")
 				),
-				aside(a("▶").att$("href","").att$("onclick","return next();")).att$("class","flechaDer"),
+				aside(a("▶").att$("style","color: var(--frontColor);").att$("href","").att$("onclick","return next();")).att$("class","flechaDer"),
 			).att$("class","container")
 	});
 		
