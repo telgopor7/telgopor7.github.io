@@ -51,6 +51,12 @@ aside a
 	-webkit-user-select: none;
 	outline: none;
 }
+.antipaddingI,
+.antipaddingD
+ {
+	padding-right: 2ch;
+	padding-left: 2ch;
+}
 .flechaIzq a:focus,
 .flechaDer a:focus{
 	outline: none;
@@ -102,8 +108,6 @@ a:focus {
 }
 .texto{
 	color: var(--textColor);
-	padding-right: 2ch;
-	padding-left: 2ch;
 }
 .cruz{
 	text-align: center;

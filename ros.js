@@ -320,8 +320,8 @@ function validarEstado(){
 document.getElementsByTagName("body")[0].onkeydown = logKey;
 
 function logKey(e){
-	if(e.key === "ArrowRight") document.querySelector(".flechaDer a").click();
-	if(e.key === "ArrowLeft") document.querySelector(".flechaIzq a").click();
+	if(e.key === "ArrowRight") document.querySelector(".antipaddingD a").click();
+	if(e.key === "ArrowLeft") document.querySelector(".antipaddingI a").click();
 	if(e.key === "KeyQ" ) document.getElementsByTagName("h1")[0].click();
 }
 

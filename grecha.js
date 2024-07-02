@@ -8,11 +8,16 @@ function tag(name, ...children){
             result.appendChild(child);
         }
     }
-
-    result.att$ = function(name, value){
+	
+	result.att$ = function(name, value){
         this.setAttribute(name, value);
         return this;
     };
+	
+	result.style$ = function (value){
+		this.att$("style", value);
+        return this;
+	}
 
 	result.onevent$ = function(event, callback){
         this.addEventListener(event, callback);
