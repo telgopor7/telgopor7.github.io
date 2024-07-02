@@ -8,19 +8,19 @@ const misterios = Object.freeze({
 });
 
 const textos = Object.freeze({
-	inicio :{
+	inicio: {
 		title: "Padre Hijo Espíritu Santo",
 		content: "En el nombre del Padre y del Hijo y del Espíritu Santo.\nDios mío, ven en mi auxilio.\nSeñor, date prisa en socorrerme.\nGloria al Padre y al Hijo y al Espíritu Santo.\nComo era en el principio, ahora y siempre,por los siglos de los siglos. Amén."
 	},
-	padreNuestro : {
+	padreNuestro: {
 		title: "Padre Nuestro",
 		content: "Padre nuestro, que estás en el cielo, santificado sea tu nombre, venga a nosotros tu reino, hágase tu voluntad, en la tierra como en el cielo. Danos hoy nuestro pan de cada día, perdona nuestras ofensas, como también nosotros perdonamos a los que nos ofenden. No nos dejes caer en la tentación, y líbranos del mal. Amén",
 	},
-	aveMaria : {
+	aveMaria: {
 		title: "Avemaría",
 		content:"Dios te Salve, María, llena eres de gracia, el Señor está contigo. Bendita tú eres entre todas las mujeres y bendito es el fruto de tu vientre, Jesús. Santa María, Madre de Dios, ruega por nosotros pecadores, ahora y en la hora de nuestra muerte. Amén"
 	},
-	gloria : {
+	gloria: {
 		title: "Gloria",
 		content: "Gloria al Padre y al Hijo y al Espíritu Santo. Como era en el principio ahora y siempre, por los siglos de los siglos. Amén."
 	},
@@ -40,9 +40,13 @@ const textos = Object.freeze({
 		title: "Rosario de María",
 		content: "El Rosario de María nos libre de todo mal, alabemos noche y día a la Reina Celestial."
 	},
-	salve : {
+	salve: {
 		title : "Salve",
 		content :"Dios te Salve, Reina y Madre de misericordia, vida, dulzura y esperanza nuestra, Dios te salve.\nA ti llamamos los desterrados hijos de Eva; a ti suspiramos, gimiendo y llorando, en este valle de lágrimas. Ea, pues, Señora, abogada nuestra, vuelve a nosotros esos tus ojos misericordiosos, y, después de este destierro, muéstranos a Jesús, fruto bendito de tu vientre. ¡Oh clementísima, oh piadosa, oh dulce Virgen María!"
+	},
+	bendita: {
+		title : "Bendita sea tu pureza",
+		content :"Bendita sea tu Pureza\ny eternamente lo sea,\npues todo un Dios se recrea,\nen tan graciosa belleza.\n\nA ti celestial Princesa\namada Virgen María,\nte ofrezco en este dia\nalma vida y corazón.\n\nMírame con compasión,\ny no me dejes Madre mía.\nAmén."
 	}
 });
 
@@ -250,6 +254,11 @@ function init(misterio){
 	Rosario.push({
 		title: textos.salve.title,
 		content: textos.salve.content,
+		totalCount: 1
+	});
+	Rosario.push({
+		title: textos.bendita.title,
+		content: textos.bendita.content,
 		totalCount: 1
 	});
 	
