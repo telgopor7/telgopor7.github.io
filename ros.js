@@ -336,6 +336,12 @@ function logKey(e){
 
 if ("serviceWorker" in navigator){
 	try{
+		navigator.serviceWorker.getRegistrations().then(registrations => {
+			for (const registration of registrations) {
+				registration.unregister();
+			}
+		});
+		
 		const registration = navigator.serviceWorker.register("/sw.js", {
 		scope: "/",
 		});
