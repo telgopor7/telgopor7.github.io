@@ -1,5 +1,5 @@
 const addResourcesToCache = async (resources) => {
-  const cache = await caches.open("v2");
+  const cache = await caches.open("v3");  //Podriamos eliminar otras versiones ?? estaria bien...
   await cache.addAll(resources);
 };
 
