@@ -46,7 +46,7 @@ const textos = Object.freeze({
 	},
 	bendita: {
 		title : "Bendita sea tu pureza",
-		content :"Bendita sea tu Pureza\ny eternamente lo sea,\npues todo un Dios se recrea,\nen tan graciosa belleza.\n\nA ti celestial Princesa\namada Virgen María,\nte ofrezco en este dia\nalma vida y corazón.\n\nMírame con compasión,\ny no me dejes Madre mía.\n Morir sin tu bendicion.\nAmén."
+		content :"Bendita sea tu Pureza\ny eternamente lo sea,\npues todo un Dios se recrea,\nen tan graciosa belleza.\n\nA ti celestial Princesa\namada Virgen María,\nte ofrezco en este dia\nalma vida y corazón.\n\nMírame con compasión,\ny no me dejes Madre mía, morir sin tu bendición.\nAmén."
 	}
 });
 
