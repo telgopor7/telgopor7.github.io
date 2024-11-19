@@ -34,7 +34,7 @@ const textos = Object.freeze({
 	},
 	ohJes: {
 		title: "Oh Jesús mío",
-		content :"¡Oh Jesús mío perdona nuestros pecados, líbranos del fuego del Infierno, lleva al Cielo a todas las almas, especialmente a las más necesitadas de tu infinita misericordia! Amén."
+		content :"¡Oh Jesús mío perdona nuestros pecados, líbranos del fuego del Infierno, lleva al Cielo a todas las almas, socorre especialmente a las más necesitadas de tu infinita misericordia! Amén."
 	},
 	rosarioMaria: {
 		title: "Rosario de María",
@@ -46,7 +46,7 @@ const textos = Object.freeze({
 	},
 	bendita: {
 		title : "Bendita sea tu pureza",
-		content :"Bendita sea tu Pureza\ny eternamente lo sea,\npues todo un Dios se recrea,\nen tan graciosa belleza.\n\nA ti celestial Princesa\namada Virgen María,\nte ofrezco en este dia\nalma vida y corazón.\n\nMírame con compasión,\ny no me dejes Madre mía.\nAmén."
+		content :"Bendita sea tu Pureza\ny eternamente lo sea,\npues todo un Dios se recrea,\nen tan graciosa belleza.\n\nA ti celestial Princesa\namada Virgen María,\nte ofrezco en este dia\nalma vida y corazón.\n\nMírame con compasión,\ny no me dejes Madre mía.\n Morir sin tu bendicion.\nAmén."
 	}
 });
 
